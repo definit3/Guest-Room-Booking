@@ -7,6 +7,7 @@ from .models import Post
 class HomeView(TemplateView):
 
     template_name = 'leave/home.html'
+    template_name2 = 'leave/home2.html'
 
     def get(self, request):
         form = HomeForm()
@@ -19,10 +20,11 @@ class HomeView(TemplateView):
         if form.is_valid():
             form.save()
 
-            text = form.cleaned_data['name']
+            name = form.cleaned_data['name']
+            roll = form.cleaned_data['roll']
+            nameroll = name+roll
             form = HomeForm
 
-        # text = form.cleaned_data['name']
 
-        args = {'form': form, 'text': text}
-        return render(request, self.template_name, args)
+        args = {'form': form, 'name': name, 'roll': roll, 'nameroll':nameroll}
+        return render(request, self.template_name2, args)
