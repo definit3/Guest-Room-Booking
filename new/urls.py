@@ -24,4 +24,5 @@ urlpatterns = [
     path('users/', include('users.urls')),
     path('users/', include('django.contrib.auth.urls')),
     path('leave/', include('leave.urls')),
+    path('roombook/', include('roombook.urls')),
 ]

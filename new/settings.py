@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'leave',
     'qr_code',
+    'roombook',
 ]
 
 MIDDLEWARE = [

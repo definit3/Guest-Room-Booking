@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="container">
-        <h1 class="user__title">Enter your leave details</h1>
+        <h1 class="user__title">Enter your roombook details</h1>
     <br><br>
         <form method="post">
             {% csrf_token %}
@@ -10,6 +10,5 @@
 
             <button type="submit">Submit</button>
         </form>
-        <h2>{{ text }}</h2>
 </div>
 {% endblock %}
