@@ -6,6 +6,12 @@ from django.http import HttpResponse
 import datetime
 
 
+def room_matrix(request):
+    rooms = Room.objects.all()
+    no_of_rooms = len(rooms)
+    return render(request, 'roombook/roommatrix.html', {'rooms': rooms, 'no_of_rooms': no_of_rooms, })
+
+
 class RoomBookView(TemplateView):
 
     template_name = 'roombook/home.html'
@@ -29,13 +35,15 @@ class RoomBookView(TemplateView):
             x = form.cleaned_data['no_of_rooms']
             room = Room.objects.filter(vacant=True)[:x]
             if len(room) >= x:
-                args = {'form': form, 'room': room, }
+                start_date = form.cleaned_data['start_date']
+                end_date = form.cleaned_data['end_date']
+                delta = end_date - start_date
+                delta = delta.days * 200
+                args = {'form': form, 'days': delta}
                 return render(request, self.template_name2, args)
 
             else:
                 return HttpResponse('Enough rooms not available')
-
-
 
 
 def adminapproveview(request):
@@ -48,17 +56,24 @@ def adminapproveview(request):
 
         if form.is_valid():
             book = form.cleaned_data.get('choice')
-            book.approve = True
-            book.save()
             x = book.no_of_rooms
             room = Room.objects.filter(vacant=True)[:x]
-            for i in room:
-                i.vacant = False
-                i.vacant_date = book.end_date
-                i.save()
+            y = form.cleaned_data['like']
 
-        args = {'form': form, 'room': room, }
-        return render(request, templateadmin2, args)
+            if len(room) >= x and y:
+                book.status = 'Approved'
+                book.approve = True
+                book.save()
+                for i in room:
+                    i.vacant = False
+                    i.vacant_date = book.end_date
+                    i.save()
+                args = {'form': form, 'room': room, }
+                return render(request, templateadmin2, args)
+            else:
+                book.status = 'Declined'
+                book.save()
+                return HttpResponse('Declined')
 
     else:
         form = AdminApprove()

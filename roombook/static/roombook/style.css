@@ -1,0 +1,116 @@
+#seat {
+            height: 25px;
+            width: 25px;
+            border: 1px solid gray;
+            cursor:pointer;
+            border-radius:5px;
+            display: inline-block;
+            font-size: 12.5px;
+            font-family:Times, serif;
+            text-align: center;
+            padding:2px;
+        }
+        #seatS {
+            height: 25px;
+            width: 25px;
+            border: 1px solid gray;
+            cursor:pointer;
+            border-radius:50%;
+            display: inline-block;
+            font-size: 12.5px;
+            font-family:Times, serif;
+            text-align: center;
+            padding:2px;
+
+        }
+        #seat1 {
+            height: 20px;
+            width: 20px;
+            border: 1px solid gray;
+            cursor:pointer;
+            background-color: steelblue;
+            border-radius:5px;
+            font-size: 10.5px;
+            font-family:Times, serif;
+            padding:3.5px;
+        }
+        #seat2 {
+            height: 20px;
+            width: 20px;
+            border: 1px solid gray;
+            cursor:pointer;
+            background-color: #b8c6dd;
+            border-radius:5px;
+            display: inline-block;
+            font-size: 10.5px;
+            font-family:Times, serif;
+            padding:3.5px;
+        }
+        #seat3 {
+            height: 20px;
+            width: 20px;
+            border: 1px solid gray;
+            cursor:pointer;
+            background-color: #eff5f7;
+            border-radius:5px;
+            display: inline-block;
+            font-size: 10.5px;
+            font-family:Times, serif;
+            padding:3.5px;
+        }
+        #seat1S {
+            height: 32px;
+            width: 32px;
+            border: 1px solid gray;
+            cursor:pointer;
+            border-radius:70%;
+            background-color: red;
+            display: inline-block;
+            font-size: 15.5px;
+            font-family:Times, serif;
+            padding:3.5px;
+
+        }
+        #seat2S {
+            height: 32px;
+            width: 32px;
+            border: 1px solid gray;
+            cursor:pointer;
+            border-radius:50%;
+            background-color: #eff5f7;
+            display: inline-block;
+            font-size: 15.5px;
+            font-family:Times, serif;
+            padding:3.5px;
+        }
+        #walk{
+            padding:0px;
+
+        }
+        #driver{
+            background-color:gray;
+            height: 20px;
+            border-radius: 50%;
+        }
+        #bathroom{
+            height: 30px;
+            width: 30px;
+            border: 1px solid gray;
+            cursor:pointer;
+            background-color:#4fb6c6;
+            margin:2px;
+            text-align:center;
+            padding:4px;
+            font-family:Georgia, serif;
+        }
+        #block{
+            height: 20px;
+            width: 50px;
+            border: 1px solid gray;
+            border-radius:4px;
+            cursor:pointer;
+            background-color:#e2dd8a;
+            margin:2px;
+            text-align:center;
+            font-family:Georgia, serif;
+        }

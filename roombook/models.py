@@ -2,6 +2,7 @@ from django.db import models
 
 
 class Room(models.Model):
+    room_number = models.CharField(max_length=200, null=True, default="")
     vacant = models.BooleanField(default=True, null=True)
     vacant_date = models.DateField(null=True, default='2008-01-01')
 
@@ -16,3 +17,4 @@ class Book(models.Model):
     end_date = models.DateField()
     reason = models.CharField(max_length=500, default="okay")
     approve = models.BooleanField(default=False, null=True)
+    status = models.CharField(max_length=500, default="Pending")

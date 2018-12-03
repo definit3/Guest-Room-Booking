@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'roombook/style.css' %}">
+
+  <div>
+  {% for i in rooms %}
+  <table class="table1">
+    <tr>
+
+        {% if i.vacant == True %}
+      <div id="seat2S">
+
+        {{ i.room_number }}
+      </div>
+        {% else %}
+      <div id="seat1S">
+        {{ i.room_number }}
+      </div>
+      {% endif %}
+    </tr>
+
+  </table>
+  {% endfor %}
+
+</div>
+{% endblock %}

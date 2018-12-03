@@ -26,4 +26,10 @@ class BookForm(forms.ModelForm):
 
 class AdminApprove(forms.Form):
     choice = forms.ModelChoiceField(queryset=Book.objects.all().filter(approve=False))
+    # accept = forms.RadioSelect()
+    # decline = forms.RadioSelect()
+    CHOICES = [(True, 'accept'),
+               (False, 'decline')]
+
+    like = forms.ChoiceField(choices=CHOICES, widget=forms.RadioSelect())
 
