@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 from .forms import BookForm, AdminApprove
-from .models import Room, Book
+from .models import Room
+from django.http import HttpResponse
+import datetime
 
 
 class RoomBookView(TemplateView):
@@ -10,6 +12,12 @@ class RoomBookView(TemplateView):
     template_name2 = 'roombook/home2.html'
 
     def get(self, request):
+
+        room = Room.objects.filter(vacant=False)
+        for i in room:
+            if i.vacant_date < datetime.date.today():
+                i.vacant = True
+                i.save()
         form = BookForm()
         return render(request, self.template_name, {'form': form})
 
@@ -18,14 +26,16 @@ class RoomBookView(TemplateView):
         form = BookForm(request.POST)
         if form.is_valid():
             form.save()
-            # x = form.cleaned_data['no_of_rooms']
-            # room = Room.objects.filter(vacant=True)[:x]
-            # for i in room:
-            #     i.vacant = False
-            #     i.save()
-            room = Room.objects.all()
-        args = {'form': form, 'room': room, }
-        return render(request, self.template_name2, args)
+            x = form.cleaned_data['no_of_rooms']
+            room = Room.objects.filter(vacant=True)[:x]
+            if len(room) >= x:
+                args = {'form': form, 'room': room, }
+                return render(request, self.template_name2, args)
+
+            else:
+                return HttpResponse('Enough rooms not available')
+
+
 
 
 def adminapproveview(request):
@@ -44,6 +54,7 @@ def adminapproveview(request):
             room = Room.objects.filter(vacant=True)[:x]
             for i in room:
                 i.vacant = False
+                i.vacant_date = book.end_date
                 i.save()
 
         args = {'form': form, 'room': room, }

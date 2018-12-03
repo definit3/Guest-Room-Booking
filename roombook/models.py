@@ -3,6 +3,7 @@ from django.db import models
 
 class Room(models.Model):
     vacant = models.BooleanField(default=True, null=True)
+    vacant_date = models.DateField(null=True, default='2008-01-01')
 
     def __str__(self):
         return str(Room.id)
