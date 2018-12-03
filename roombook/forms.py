@@ -22,3 +22,8 @@ class BookForm(forms.ModelForm):
     class Meta:
         model = Book
         fields = ('name', 'no_of_rooms', 'start_date', 'end_date', 'reason')
+
+
+class AdminApprove(forms.Form):
+    choice = forms.ModelChoiceField(queryset=Book.objects.all().filter(approve=False))
+
