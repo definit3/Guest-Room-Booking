@@ -1,12 +1,13 @@
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 from .forms import BookForm
+from .models import Room, Book
 
 
 class RoomBookView(TemplateView):
 
-    template_name = 'leave/home.html'
-    template_name2 = 'leave/home2.html'
+    template_name = 'roombook/home.html'
+    template_name2 = 'roombook/home2.html'
 
     def get(self, request):
         form = BookForm()
@@ -17,8 +18,11 @@ class RoomBookView(TemplateView):
         form = BookForm(request.POST)
         if form.is_valid():
             form.save()
-
-            name = form.cleaned_data['name']
-            form = BookForm
-        args = {'form': form, 'name': name, }
+            # x = form.cleaned_data['no_of_rooms']
+            # room = Room.objects.filter(vacant=True)[:x]
+            # for i in room:
+            #     i.vacant = False
+            #     i.save()
+            room = Room.objects.all()
+        args = {'form': form, 'room': room, }
         return render(request, self.template_name2, args)

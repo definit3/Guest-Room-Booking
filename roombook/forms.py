@@ -9,16 +9,16 @@ class BookForm(forms.ModelForm):
             'placeholder': 'Enter Your Full Name'
         }
     ))
-
+    no_of_rooms = forms.IntegerField()
     start_date = forms.DateField(widget=forms.SelectDateWidget())
     end_date = forms.DateField(widget=forms.SelectDateWidget())
-    no_of_rooms = forms.CharField(widget=forms.TextInput(
+    reason = forms.CharField(widget=forms.TextInput(
         attrs={
             'class': 'form-control',
-            'placeholder': 'Enter No of Rooms'
+            'placeholder': 'Enter Reason for booking'
         }
     ))
 
     class Meta:
         model = Book
-        fields = ('name', 'tart_date', 'end_date', 'no_of_rooms')
+        fields = ('name', 'no_of_rooms', 'start_date', 'end_date', 'reason')
