@@ -1,0 +1,22 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="wrap">
+    <form action="" method="post">
+        {% csrf_token %}
+      <div class="fields"> Student Name <br><br> {{ form.student_name }}</div>
+      <div class="fields"> Father's Name <br><br> {{ form.father_name }}</div>
+      <div class="fields"> Enrollment Number <br><br> {{ form.enrollment_no }}</div>
+      <input class="button-custom" type="submit" value="DONE">
+    </form>
+  </div>
+{% endblock content %}
+
+
+{% block more_links %}
+    <a href="{% url 'edit' %}">
+            Update Details
+        </a>
+
+{% endblock more_links %}
