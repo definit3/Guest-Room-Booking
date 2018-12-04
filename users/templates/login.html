@@ -1,19 +1,28 @@
 
 {% extends 'base.html' %}
-
 {% block content %}
-<div class="wrap">
-    <form action="" method="post">
+{% load static %}
+<div class= "wrap">
+<link rel="stylesheet" type="text/css" href="{% static 'login.css' %}">
+<div id="login" class="login-form-container">
+  <header>LOGIN - SIGN UP</header>
+  <fieldset>
+
+    <form action="" method="post" class="login-form">
         {% csrf_token %}
-      <div class="fields"> Username <br><br> {{ form.username }}</div>
-      <div class="fields"> Password <br><br> {{ form.password }}</div>
-      <input class="button-custom" type="submit" value="LOGIN">
+
+    <div class="input-wrapper"> Username <br> {{ form.username }}<br><br></div>
+          <div class="input-wrapper"> Password <br> {{ form.password }}</div>
+        <input type="submit" name="Login" value="Login" class="login-submit" />
     </form>
-  </div>
+    </fieldset>
+
+</div>
+</div>
 {% endblock content %}
 
 
 {% block more_links %}
-    <a href="{% url 'login' %}">Login</a>
-    <a href="{% url 'reg_form' %}">Register</a>
+    <a href="{% url 'register' %}">Book Here !</a>
+
 {% endblock more_links %}

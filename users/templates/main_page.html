@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'main_page.css' %}">
+
+<div style="margin-top: 50px;">
+<div class="list-type1">
+<ol>
+    <li>
+        <a href="">Each room is having double occupancy. A room with room no X can have two occupants XA and XB. In available room list, room X will be shown as two rooms XA and XB.</a></li>
+    <li>
+        <a href="">Only male visitors are allowed to stay in boys hostel. For female visitors, you are requested to contact girl’s hostel.</a></li>
+    <li>
+        <a href="">Room rent for each person per night is Rs 200.</a></li>
+
+    <li>
+        <a href="">Payment can be done in three different ways after room request is approved by admin</a>
+            <ol>
+                <li><a href=""> Online payment (a link of payment will be uploaded to the account of user who requested for booking)</a></li>
+                <li><a href=""> Via chalan ( a chalan form will be uploaded to the account of user who requested for booking)</a></li>
+                <li><a href=""> POS card swapping machine kept in hostel</a></li>
+           </ol>
+    </li>
+    <li>
+        <a href="">Guests are requested to carry some valid ID proof and display to security.</a></li>
+    <li>
+        <a href="">Guest can obtain the key of booked room from security by showing room booking confirmation mail to security.</a></li>
+    <li>
+        <a href="">There is mess facility in hostel, guest can use the facility with cash payment.</a></li>
+    <li>
+        <a href="">Damages happened in the period of occupancy will be recovered from user who booked the room</a></li>
+    <li>
+        <a href="">Once a room is booked, you are not allowed to cancel.</a></li>
+</ol>
+
+</div>
+ <a class="sp-circle-link " href="home/">Book</a>
+   </div>
+<div class="underlay-black"></div>
+
+{% endblock content %}
+
+
+{% block more_links %}
+    <a href="{% url 'register' %}">Book Here !</a>
+{% endblock more_links %}

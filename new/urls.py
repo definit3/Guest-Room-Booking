@@ -20,9 +20,10 @@ from users import views
 from django.views.generic.base import TemplateView
 
 urlpatterns = [
-    # path('', TemplateView.as_view(template_name='home.html'), name='home'),
+    # path('login/', TemplateView.as_view(template_name='home.html'), name='home'),
+    path('', views.main_page, name='main_page'),
     path('admin/', admin.site.urls),
-    path('', views.home, name='register'),
+    path('home/', views.home, name='register'),
     path('reg_form/', views.register, name='reg_form'),
     path('login/', views.user_login, name='login'),
     path('logout/', views.logout_view, name='logout'),

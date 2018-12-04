@@ -5,12 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
     <style type="text/css">
         @import url(https://fonts.googleapis.com/css?family=Inconsolata:700);
+
+        .underlay-black {
+            background: rgba(0,0,0,0.7);
+            z-index: -1;
+        }
         body {
             font-family: 'Inconsolata', sans-serif;
             font-style: normal;
             font-weight: 200;
             margin: 0px;
-            background: #EAEFF2;
+            background: #310404 url(https://i.ytimg.com/vi/wOvQAhzWCrM/maxresdefault.jpg) no-repeat center center fixed;
+
         }
         a {
             text-decoration: none;
@@ -21,12 +27,11 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background: #E5E6F2;
+            background: #02030C;
             color: black;
             padding: 15px;
             text-align: center;
-            border: 2px white solid;
-            border-radius: 3px;
+
         }
         .button-custom {
             -webkit-transition: all 300ms cubic-bezier(0.1590, 0.500, 0.150, 1.360);
@@ -58,7 +63,7 @@
         .nav {
             height: 50px;
             width: 100%;
-            background-color: #1D6C4D;
+            background-color: #121426;
             position: relative;
             z-index: 1;
         }
@@ -155,7 +160,7 @@
 <div class="nav">
     <div class="nav-header">
         <div class="nav-title">
-            <a href="{% url 'register' %}">Guest Room Booking</a>
+            <a href="{% url 'main_page' %}">Guest Room Booking</a>
         </div>
     </div>
     <div class="nav-btn">
@@ -165,7 +170,6 @@
             <span></span>
         </label>
     </div>
-    <input type="checkbox" id="nav-check">
     <div class="nav-links">
 
 
@@ -175,9 +179,11 @@
     </div>
 </div>
 
+
 {% block content %}
 {% endblock content %}
 
 
 </body>
+
 </html>
