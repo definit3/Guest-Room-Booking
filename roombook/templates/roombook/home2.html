@@ -1,8 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container">
-    <h1> You may get the rooms .. Wait for the approval from admin ! </h1>
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'home.css' %}">
+<div class="rap">
+    <h1> Your Booking is begin processed. You will get the status email soon! </h1>
     <br>
     <h1> Estimated Amount Payable: Rs. {{ days }} </h1>
 </div>

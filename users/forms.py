@@ -14,8 +14,10 @@ class UserForm(UserCreationForm):
 
 
 class LoginForm(forms.Form):
-    username = forms.CharField()
-    password = forms.CharField(widget=forms.PasswordInput)
+    username = forms.CharField(label="Username", max_length=30, widget=forms.TextInput(
+        attrs={'class': 'mdl-textfield__input', 'type': 'text', 'id': 'username'}))
+    password = forms.CharField(label="Password", max_length=30, widget=forms.TextInput(
+        attrs={'class': 'mdl-textfield__input', 'type': 'password', 'id': 'password'}))
 
 
 class RegistrationForm(forms.ModelForm):

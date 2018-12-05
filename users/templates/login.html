@@ -1,23 +1,25 @@
-
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
-<div class= "wrap">
 <link rel="stylesheet" type="text/css" href="{% static 'login.css' %}">
-<div id="login" class="login-form-container">
-  <header>LOGIN - SIGN UP</header>
-  <fieldset>
 
-    <form action="" method="post" class="login-form">
-        {% csrf_token %}
 
-    <div class="input-wrapper"> Username <br> {{ form.username }}<br><br></div>
-          <div class="input-wrapper"> Password <br> {{ form.password }}</div>
-        <input type="submit" name="Login" value="Login" class="login-submit" />
-    </form>
-    </fieldset>
+<div class="wrap">
+    <div id="login" class="signin-card">
+        <div class="logo-image">
+            <img src="http://www.officialpsds.com/images/thumbs/Spiderman-Logo-psd59240.png" alt="Logo" title="Logo" width="138">
+        </div>
+        <form action="" method="post" class="login-form">
+            {% csrf_token %}
 
-</div>
+            <div id="form-login-username" class="form-group">Username <br> {{ form.username }}<br></div>
+            <div id="form-login-password" class="form-group"> Password <br> {{ form.password }}</div>
+            <div><button class="btn btn-block btn-info ripple-effect" type="submit" name="Submit" alt="sign in">Sign in</button></div>
+        </form>
+
+
+
+    </div>
 </div>
 {% endblock content %}
 
