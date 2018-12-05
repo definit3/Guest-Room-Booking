@@ -1,5 +1,6 @@
 # Guest-Room-Booking
-Guest Room Booking is a django-project that can be used to book guest room of college.
+Guest Room Booking can be used by the college administrators to book their Guest Rooms. 
+The project makes use of a SQLite, Django, HTML and CSS. The system makes use of SQLite to store the user information, and HTML/CSS for creating a user friendly interface..
 
 ## Getting Started
 
