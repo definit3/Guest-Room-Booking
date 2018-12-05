@@ -12,6 +12,8 @@ The project makes use of a SQLite, Django, HTML and CSS. The system makes use of
 ## Built With
 
 *	Django
+* HTML
+* CSS
 
 ## Authors
 
