@@ -7,7 +7,7 @@ class Room(models.Model):
     vacant_date = models.DateField(null=True, default='2008-01-01')
 
     def __str__(self):
-        return str(Room.id)
+        return self.room_number
 
 
 class Book(models.Model):
