@@ -10,3 +10,9 @@
     <h1> Estimated Amount Payable: Rs. {{ days }} </h1>
 </div>
 {% endblock %}
+
+{% block more_links %}
+    <a href="{% url 'logout' %}">Logout</a>
+
+{% endblock more_links %}
+

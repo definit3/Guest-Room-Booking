@@ -31,4 +31,5 @@ urlpatterns = [
     path('leave/', include('leave.urls')),
     path('roombook/', include('roombook.urls')),
     path('login/edit/', views.edit, name='edit'),
+    path('booking_details/', views.booking_details, name='booking_details'),
 ]

@@ -1,16 +1,39 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container">
-        <h1 class="user__title">Approve or reject get</h1>
-    <br><br>
-        <form method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <!--{{ form.accept }}-->
-            <!--{{ form.decline }}-->
 
-            <button type="submit">Submit</button>
-        </form>
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'home.css' %}">
+
+
+<div class="signupSection">
+  <div class="info">
+    <i class="icon ion-ios-ionic-outline" aria-hidden="true"></i>
+  </div>
+  <form method="POST" class="signupForm" name="signupform">
+      {% csrf_token %}
+    <h2>Approve OR Reject</h2>
+    <ul class="noBullet">
+      <li>
+        {{ form.choice }}<br>
+      </li>
+      <li>
+        {{ form.like }}<br>
+      </li>
+
+      <li id="center-btn">
+        <input type="submit" id="join-btn" name="join" alt="Join" value="Submit">
+      </li>
+    </ul>
+  </form>
 </div>
+
+
 {% endblock %}
+
+{% block more_links %}
+    <a href="{% url 'register' %}">Book Here !</a>
+    <a href="{% url 'logout' %}">Logout</a>
+
+{% endblock more_links %}

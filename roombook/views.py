@@ -8,6 +8,10 @@ import datetime
 
 def room_matrix(request):
     rooms = Room.objects.all()
+    for i in rooms:
+        if i.vacant_date < datetime.date.today():
+            i.vacant = True
+            i.save()
     no_of_rooms = len(rooms)
     return render(request, 'roombook/roommatrix.html', {'rooms': rooms, 'no_of_rooms': no_of_rooms, })
 

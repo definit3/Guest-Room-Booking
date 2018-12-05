@@ -4,6 +4,14 @@ from .models import Student
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
+from roombook.models import Room, Book
+import datetime
+
+
+def booking_details(request):
+    book = Book.objects.all().order_by('-status')
+    args = {'book': book}
+    return render(request, 'booking_details.html', args)
 
 
 def main_page(request):
@@ -78,8 +86,13 @@ def warden_login(request):
                 if not user.is_warden:
                     return HttpResponse('Invalid Login')
                 elif user.is_active:
+                    rooms = Room.objects.all()
+                    for i in rooms:
+                        if i.vacant_date < datetime.date.today():
+                            i.vacant = True
+                            i.save()
                     login(request, user)
-                    return render(request, 'warden.html')
+                    return render(request, 'warden.html', {'rooms': rooms})
                 else:
                     return HttpResponse('Disabled account')
             else:

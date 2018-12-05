@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'profile.css' %}">
+
+    <div class="wrapper">
+
+        <h2>Booking Details </h2>
+        {% for i in book %}
+        <div class="table">
+
+            <div class="row">
+                <div class="cell">
+                    Name
+                </div>
+                <div class="cell">
+                    {{ i.name }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="cell">
+                    No of Rooms
+                </div>
+                <div class="cell">
+                    {{ i.no_of_rooms }}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="cell">
+                    Start Date
+                </div>
+                <div class="cell">
+                    {{ i.start_date }}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="cell">
+                    End Date
+                </div>
+                <div class="cell">
+                    {{ i.end_date }}
+                </div>
+            </div>
+
+                        <div class="row">
+                <div class="cell">
+                    Reason
+                </div>
+                <div class="cell">
+                    {{ i.reason }}
+                </div>
+            </div>
+
+
+                                    <div class="row">
+                <div class="cell">
+                    Status
+                </div>
+                <div class="cell">
+                    {{ i.status }}
+                </div>
+
+            </div>
+
+        </div>
+        {% endfor %}
+
+        <a class="mycircle " href="{% url 'approve' %}">Approve</a>
+
+    </div>
+
+{% endblock content %}
+{% block more_links %}
+    <a href="{% url 'register' %}">Book Here !</a>
+    <a href="{% url 'logout' %}">Logout</a>
+
+{% endblock more_links %}

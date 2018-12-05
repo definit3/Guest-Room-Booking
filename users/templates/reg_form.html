@@ -2,13 +2,39 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="wrap">
-    <form action="" method="post">
-        {% csrf_token %}
-      <div class="fields"> Username <br><br> {{ form.username }}</div>
-      <div class="fields"> Password <br><br> {{ form.password1 }}</div>
-      <div class="fields"> Repeat Password <br><br> {{ form.password2 }}</div>
-      <input class="button-custom" type="submit" value="REGISTER">
-    </form>
+
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'home.css' %}">
+
+
+<div class="signupSection">
+  <div class="info">
+    <i class="icon ion-ios-ionic-outline" aria-hidden="true"></i>
   </div>
+  <form method="POST" class="signupForm" name="signupform">
+      {% csrf_token %}
+    <h2>Register</h2>
+    <ul class="noBullet">
+      <li>
+
+        <label for="username"></label>
+         Enter Username:{{ form.username }} <br>
+      </li>
+      <li>
+        <label for="password"></label>
+        Enter Password:  {{ form.password1 }}<br>
+      </li>
+      <li>
+        <label for="email"></label>
+        Repeat Password: {{ form.password2 }}<br>
+      </li>
+
+      <li id="center-btn">
+        <input type="submit" id="join-btn" name="join" alt="Join" value="Submit">
+      </li>
+    </ul>
+  </form>
+</div>
+
 {% endblock content %}

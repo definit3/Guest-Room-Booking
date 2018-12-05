@@ -18,3 +18,6 @@ class Book(models.Model):
     reason = models.CharField(max_length=500, default="okay")
     approve = models.BooleanField(default=False, null=True)
     status = models.CharField(max_length=500, default="Pending")
+
+    def __str__(self):
+        return self.name
